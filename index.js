@@ -2,15 +2,8 @@ const express = require("express");
 const discord = require("discord.js");
 const app = express();
 const client = new discord.Client({
-  partials: [
-    "USER",
-    "GUILD_MEMBER",
-    "MESSAGE",
-    "REACTION",
-    "GUILD_SCHEDULED_EVENT",
-    "CHANNEL",
-  ],
-  intents: Object.values(discord.Intents.FLAGS),
+  partials: Object.values(discord.Partials),
+  intents: Object.values(discord.IntentsBitField.Flags),
 });
 const prefix = process.env.prefix;
 const activity = process.env.activity;
@@ -20,7 +13,7 @@ try {
     res.send("Botがオンラインです！");
   });
 
-  app.listen(8080, () => {});
+  app.listen(3000, () => {});
 
   client.on("ready", (message) => {
     console.log("Botが起動したよ～");
