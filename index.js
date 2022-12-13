@@ -17,7 +17,7 @@ try {
 
   client.on("ready", (message) => {
     console.log("Botが起動したよ～");
-    client.user.setActivity(activity, { type: "PLAYING" });
+    client.user.setActivity(activity, { type: discord.ActivityType.Playing });
   });
 
   client.on("messageCreate", async (message) => {
